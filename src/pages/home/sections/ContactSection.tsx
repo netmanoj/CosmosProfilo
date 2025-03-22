@@ -17,7 +17,7 @@ const ContactSection = ({ show }: { show: boolean }) => {
           transition={{ delay: 0.3 }}
           className="text-white/80"
         >
-          I'm always open to new opportunities, collaborations, or just a friendly chat about tech. Feel free to reach out through any of the channels below:
+          I'm always open to new opportunities, collaborations.
         </motion.p>
         
         <motion.div

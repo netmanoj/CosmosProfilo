@@ -1,4 +1,3 @@
-
 import { useIsMobile } from '@/hooks/use-mobile';
 import { AnimatePresence } from 'framer-motion';
 import CanvasLayout from '@/layouts/CanvasLayout';
@@ -18,6 +17,7 @@ import AboutSection from './home/sections/AboutSection';
 import SkillsSection from './home/sections/SkillsSection';
 import ProjectsSection from './home/sections/ProjectsSection';
 import ContactSection from './home/sections/ContactSection';
+import BackgroundSection from './home/sections/BackgroundSection';
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -58,6 +58,7 @@ const Index = () => {
         <SkillsSection show={activeSection === 'skills'} />
         <ProjectsSection show={activeSection === 'projects'} />
         <ContactSection show={activeSection === 'contact'} />
+        <BackgroundSection show={activeSection === 'background'} />
         
         {/* Intro overlay for home section */}
         <AnimatePresence>

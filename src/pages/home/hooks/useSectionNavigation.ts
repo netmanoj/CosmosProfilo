@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 export interface Section {
@@ -12,7 +11,8 @@ const SECTIONS: Section[] = [
   { id: 'about', label: 'About Me' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' }
+  { id: 'contact', label: 'Contact' },
+  { id: 'background', label: 'Background' }
 ];
 
 export const useSectionNavigation = () => {
