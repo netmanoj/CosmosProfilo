@@ -19,24 +19,25 @@ const NavMenu = ({ items, activeId, onChange, className }: NavMenuProps) => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   
   return (
-    <div className="fixed inset-x-0 bottom-4 sm:bottom-6 flex justify-center items-center z-50 px-2 sm:px-4">
+    <div className="fixed inset-x-0 bottom-4 sm:bottom-6 md:bottom-8 flex justify-center items-center z-50 px-2 sm:px-4 md:px-6">
       <motion.nav
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
         className={cn(
-          "w-[95%] sm:w-auto sm:min-w-[200px] sm:max-w-[90%]",
-          "bg-opacity-10 backdrop-blur-md bg-black/40 border border-white/10 rounded-full py-1 sm:py-2 px-2 sm:px-6",
+          "w-[95%] sm:w-[90%] md:w-auto md:min-w-[300px] lg:min-w-[400px]",
+          "bg-opacity-10 backdrop-blur-md bg-black/40 border border-white/10 rounded-full",
+          "py-1.5 sm:py-2 md:py-2.5 px-2 sm:px-4 md:px-6 lg:px-8",
           className
         )}
       >
-        <ul className="flex items-center justify-between sm:justify-center sm:gap-3 w-full">
+        <ul className="flex items-center justify-between sm:justify-center sm:gap-2 md:gap-3 lg:gap-4 w-full">
           {items.map((item) => (
             <li key={item.id}>
               <button
                 className={cn(
-                  "relative px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-300",
-                  "text-[13px] sm:text-sm md:text-base font-medium whitespace-nowrap",
+                  "relative px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2.5 rounded-full transition-all duration-300",
+                  "text-[12px] xs:text-[13px] sm:text-sm md:text-base lg:text-lg font-medium whitespace-nowrap",
                   activeId === item.id ? "text-white" : "text-white/70 hover:text-white"
                 )}
                 onClick={() => onChange(item.id)}
@@ -64,7 +65,7 @@ const NavMenu = ({ items, activeId, onChange, className }: NavMenuProps) => {
                 
                 {/* Icon */}
                 {item.icon && (
-                  <span className="mr-1 sm:mr-2">{item.icon}</span>
+                  <span className="mr-1 sm:mr-1.5 md:mr-2">{item.icon}</span>
                 )}
                 
                 {/* Label */}
