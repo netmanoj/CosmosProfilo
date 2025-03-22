@@ -25,7 +25,7 @@ const Index = () => {
   
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-black text-white">
-      {/* 3D Canvas */}
+      {/* 3D Canvas with fixed black hole view */}
       <CanvasLayout>
         <Scene 
           activeSection={activeSection}

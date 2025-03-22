@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface InfoPanelProps {
@@ -20,13 +21,6 @@ const InfoPanel = ({
   className
 }: InfoPanelProps) => {
   const [rendered, setRendered] = useState(false);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ container: scrollContainerRef });
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
   
   // Prevent flash of content when transitioning between sections
   useEffect(() => {
@@ -65,7 +59,7 @@ const InfoPanel = ({
             if (!show) setRendered(false);
           }}
         >
-          <div className="h-full p-8 flex flex-col relative">
+          <div className="p-8 h-full flex flex-col">
             {/* Title Animation */}
             <AnimatePresence mode="wait">
               {show && (
@@ -94,25 +88,13 @@ const InfoPanel = ({
               {show && (
                 <motion.div
                   key={`content-${title}`}
-                  className="relative flex-1 overflow-hidden"
+                  className="overflow-y-auto pb-6 flex-1 pr-4 text-white"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ delay: 0.2, duration: 0.3 }}
                 >
-                  <div 
-                    ref={scrollContainerRef}
-                    className="absolute inset-0 overflow-y-auto scrollbar-none pr-4 text-white"
-                  >
-                    {children}
-                  </div>
-                  {/* Custom scrollbar effect */}
-                  <div className="absolute right-0 top-0 w-0.5 h-full bg-white/5">
-                    <motion.div
-                      className="w-full bg-gradient-to-b from-blue-400 to-purple-500 origin-top rounded-full"
-                      style={{ scaleY }}
-                    />
-                  </div>
+                  {children}
                 </motion.div>
               )}
             </AnimatePresence>

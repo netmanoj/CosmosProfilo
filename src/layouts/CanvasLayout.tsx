@@ -13,7 +13,7 @@ const CanvasLayout = ({ children }: CanvasLayoutProps) => {
   return (
     <div className="fixed inset-0 w-screen h-screen">
       <Canvas
-        camera={{ position: [0, 0, 20], fov: 60 }}
+        camera={{ position: [0, 15, 0], fov: 40, up: [0, 0, -1] }} // Adjusted camera position
         dpr={[1, 2]} 
         gl={{ 
           alpha: false, 
@@ -33,16 +33,16 @@ const CanvasLayout = ({ children }: CanvasLayoutProps) => {
         
         {/* Main light source */}
         <pointLight 
-          position={[0, 0, 0]} 
-          intensity={2} 
-          color="#5e35b1" 
+          position={[0, 10, 0]} 
+          intensity={1} 
+          color="#ff4500" 
           distance={20}
         />
         
         {/* Additional directional light */}
         <directionalLight 
           position={[5, 5, 5]} 
-          intensity={0.5} 
+          intensity={0.4} 
           color="#ffffff"
           castShadow 
           shadow-mapSize={[1024, 1024]}
